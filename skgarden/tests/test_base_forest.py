@@ -2,8 +2,9 @@ import numpy as np
 from functools import partial
 
 from sklearn.utils import check_random_state
-from sklearn.utils.testing import assert_array_equal
-from sklearn.utils.testing import assert_array_almost_equal
+
+from numpy.testing import assert_array_equal
+from numpy.testing import assert_array_almost_equal
 
 from skgarden import RandomForestRegressor
 from skgarden import ExtraTreesRegressor
@@ -28,7 +29,7 @@ def test_variance_toy_data():
     """Test that `return_std` behaves expected on toy data."""
     for Regressor in [partial(RandomForestRegressor, bootstrap=False),
                       ExtraTreesRegressor]:
-        yield check_variance_toy_data, Regressor
+        check_variance_toy_data(Regressor)
 
 
 def check_variance_no_split(Regressor):
@@ -54,7 +55,7 @@ def test_variance_no_split():
     """
     for Regressor in [partial(RandomForestRegressor, bootstrap=False),
                       ExtraTreesRegressor]:
-        yield check_variance_no_split, Regressor
+        check_variance_no_split(Regressor)
 
 
 def test_min_variance():

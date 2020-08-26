@@ -74,4 +74,5 @@ if __name__ == "__main__":
             ],
           install_requires=["numpy", "scipy", "scikit-learn>=0.18", "cython", "joblib"],
           setup_requires=["cython"],
+          tests_require=["pytest"],
           ext_modules=extensions)
